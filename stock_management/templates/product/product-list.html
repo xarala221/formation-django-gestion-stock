@@ -3,6 +3,16 @@
 {% block content %}
 
 <div class="mt-4">
+
+  <div class="row">
+    <div class="col">
+      <div class="float-right mb-4">
+        <a href="{% url 'add_product' %}" class="btn btn-info">
+          Nouveau produit
+        </a>
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="col-md-3">
       {% for product in products %}
@@ -13,9 +23,9 @@
           <h5 class="card-title">{{ product.name }}</h5>
           <p class="card-text">Prix: {{ product.price }}</p>
           <p class="card-text">Quantité en stock: {{ product.quantity }}</p>
-          <a href="#" class="btn btn-primary">Voir</a>
-          <a href="#" class="btn btn-warning">Modifier</a>
-          <a href="#" class="btn btn-danger">Supprimer</a>
+          <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">Voir</a>
+          <a href="{% url 'edit_product' product.id %}" class="btn btn-warning">Modifier</a>
+          <a href="{% url 'delete_product' product.id %}" class="btn btn-danger">Supprimer</a>
         </div>
       </div>
 
