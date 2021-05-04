@@ -13,10 +13,13 @@ class Transaction(models.Model):
 
     transaction_type = models.CharField(
         max_length=1, choices=TRANSACTION_TYPE_CHOICES, default=SPENT)
-    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True,)
     quantity = models.PositiveIntegerField(default=1)
     price = models.DecimalField(default=0, max_digits=13, decimal_places=2)
     created_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"Produit: {self.product} {self.price * self.quantity}"
+
+    def total_price(self):
+        return self.quantity * self.price

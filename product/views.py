@@ -34,7 +34,8 @@ def add_product(request):
 @login_required
 def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
-    return render(request, "product/product-detail.html", {"product": product})
+    incomes = product.transaction_set.all()
+    return render(request, "product/product-detail.html", {"product": product, "incomes": incomes})
 
 
 @login_required

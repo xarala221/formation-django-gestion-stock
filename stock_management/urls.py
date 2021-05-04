@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("product.urls")),
     path("", include("account.urls")),
+    path("transaction/", include("transaction.urls")),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL,

@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="mt-4">
+
+  <div class="row">
+    <div class="col">
+      <div class="float-right mb-4">
+        <a href="{% url 'add_income' %}" class="btn btn-info">
+          Nouvelle vente
+        </a>
+
+        <a href="{% url 'add_spent' %}" class="btn btn-warning">
+          Nouvelle depense
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="card mb-4">
+        <div class="card-header">
+          <i class="fas fa-table mr-1"></i>
+          Ventes
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Produit</th>
+                  <th>Prix vendu</th>
+                  <th>Quantité vendue</th>
+                  <th>Montant Total</th>
+                  <th>date</th>
+                </tr>
+              </thead>
+
+              <tbody>
+
+                {% for income in incomes %}
+                <tr>
+                  <td>{{ income.product.name }}</td>
+                  <td>{{ income.price }}</td>
+                  <td>{{ income.quantity }}</td>
+                  <td>{{ income.total_price }}</td>
+                  <td>{{ income.created_at|date:"d-m-Y" }}</td>
+                </tr>
+                {% endfor %}
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-header">
+          <i class="fas fa-table mr-1"></i>
+          Depenses
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Prix</th>
+                  <th>Quantité</th>
+                  <th>Montant total</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+
+              <tbody>
+
+
+                {% for spent in spents %}
+
+
+                <tr>
+                  <td>{{ spent.price }}</td>
+                  <td>{{ spent.quantity }}</td>
+                  <td>{{ spent.total_price }}</td>
+                  <td>{{ spent.created_at|date:"d/m/Y" }}</td>
+                </tr>
+                {% endfor %}
+
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

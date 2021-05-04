@@ -20,7 +20,10 @@
       <div class="card">
         <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
         <div class="card-body">
-          <h5 class="card-title">{{ product.name }}</h5>
+          <a href="{% url 'product_detail' product.id %}">
+            <h5 class="card-title">{{ product.name }}</h5>
+          </a>
+
           <p class="card-text">Prix: {{ product.price }}</p>
           <p class="card-text">Quantité en stock: {{ product.quantity }}</p>
           <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">Voir</a>
