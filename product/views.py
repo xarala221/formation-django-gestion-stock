@@ -2,6 +2,11 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import Product
 from .forms import ProductForm
+from django.views.generic import TemplateView
+
+
+class AboutView(TemplateView):
+    template_name = "product/about.html"
 
 
 @login_required

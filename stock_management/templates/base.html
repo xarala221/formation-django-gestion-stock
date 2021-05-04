@@ -23,15 +23,10 @@
     <!-- Navbar-->
     <ul class="navbar-nav ml-auto">
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="userDropdown" href="#!" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+        <a class="nav-link " id="userDropdown" href="{% url 'logout' %}"><i class="fas fa-user fa-fw"></i>
+          Déconnexion</a>
       </li>
-      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-        <a class="dropdown-item" href="#!">Settings</a>
-        <a class="dropdown-item" href="#!">Activity Log</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="login.html">Logout</a>
-      </div>
+
     </ul>
   </nav>
   <div id="layoutSidenav">
@@ -60,6 +55,7 @@
           <div class="small">Bienvenue:</div>
           UTilisateur
         </div>
+        <a href="{% url 'about' %}"> A propos</a>
       </nav>
     </div>
     <div id="layoutSidenav_content">

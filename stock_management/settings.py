@@ -54,7 +54,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'stock_management.urls'
 LOGIN_URL = "login"
-# LOGOUT_URL
+LOGOUT_REDIRECT_URL = "index"
 
 TEMPLATES = [
     {
